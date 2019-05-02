@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02-08</title>
+    <style>
+        #list {
+            width: 400px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        #list td,
+        #list th {
+            border: 1px solid black;
+            text-align: center;
+        }
+        
+        #list>thead>tr {
+            color: yellow;
+            background-color: purple;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+
+<body>
+    <div id="example">
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr v-for="contact in contacts">
+                    <td v-text="contact.no"></td>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.tel}}</td>
+                    <td>{{contact.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        var model = {
+            "pageno": 1,
+            "pagesize": 10,
+            "totalcount": 100,
+            "contacts": [{
+                "no": 100,
+                "name": "1",
+                "tel": "010-3456-8299",
+                "address": "서울"
+            }, {
+                "no": 10,
+                "name": "2",
+                "tel": "010-3456-8229",
+                "address": "경기"
+            }, {
+                "no": 130,
+                "name": "3",
+                "tel": "010-3456-8259",
+                "address": "서울"
+            }, {
+                "no": 150,
+                "name": "4",
+                "tel": "010-3456-8279",
+                "address": "경기"
+            }, {
+                "no": 109,
+                "name": "5",
+                "tel": "010-3456-8729",
+                "address": "서울"
+            }]
+        }
+
+
+        var list = new Vue({
+
+            el: "#example",
+            data: model
+        })
+    </script>
+
+</body>
+
+</html>
