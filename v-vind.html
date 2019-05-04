@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+</head>
+
+
+
+<body>
+    <div id='app'>
+        <my-c1></my-c1>
+        <my-c2></my-c2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        var cmp1 = {
+            template: '<div>첫번째 지역 컴포넌트 : {{data1}} </div>',
+            data: function() {
+
+                return {
+                    data1: 100
+                }
+
+            }
+        }
+
+        var cmp2 = {
+            template: '<div>2번째 지역 컴포넌트 : {{data2}} </div>',
+            data: function() {
+                return {
+                    data2: cmp1.data.data1
+                }
+            }
+        }
+
+
+        new Vue({
+            el: '#app',
+            components: {
+                'my-c1': cmp1,
+                'my-c2': cmp2
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
